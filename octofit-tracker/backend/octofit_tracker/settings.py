@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-hk#^)bqf6y!@tb%t#^b4vgodq(c*wl@i5ws(waw1mg49s*e17@"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'humble-space-eureka-vwvj5q54r6vfpw7x-8000.app.github.dev']
 
 
 # Application definition
@@ -79,11 +79,13 @@ WSGI_APPLICATION = "octofit_tracker.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "djongo",
-        "NAME": "octofit_db",
-        "HOST": "localhost",
-        "PORT": 27017,
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'octofit_db',
+        'ENFORCE_SCHEMA': True,
+        'CLIENT': {
+            'host': 'mongodb://localhost:27017/',
+        }
     }
 }
 

@@ -6,7 +6,13 @@ from .models import User, Team, Activity, Leaderboard, Workout
 
 @api_view(['GET'])
 def api_root(request, format=None):
-    base_url = 'http://localhost:8000/'
+    # Get the request's host, which includes the domain
+    host = request.get_host()
+    # Determine the scheme (http or https)
+    scheme = 'https' if request.is_secure() else 'http'
+    # Build the base URL
+    base_url = f'{scheme}://{host}/'
+    
     return Response({
         'users': base_url + 'api/users/',
         'teams': base_url + 'api/teams/',

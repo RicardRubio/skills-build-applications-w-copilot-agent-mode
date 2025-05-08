@@ -14,7 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = '__all__'
+        fields = ['_id', 'username', 'email', 'password']
 
 class TeamSerializer(serializers.ModelSerializer):
     _id = ObjectIdField()
