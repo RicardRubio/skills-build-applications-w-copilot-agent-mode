@@ -11,14 +11,14 @@ def api_root(request, format=None):
     # Determine the scheme (http or https)
     scheme = 'https' if request.is_secure() else 'http'
     # Build the base URL
-    base_url = f'{scheme}://{host}/'
+    base_url = f'{scheme}://{host}/api/'
     
     return Response({
-        'users': base_url + 'api/users/',
-        'teams': base_url + 'api/teams/',
-        'activities': base_url + 'api/activities/',
-        'leaderboard': base_url + 'api/leaderboard/',
-        'workouts': base_url + 'api/workouts/'
+        'users': base_url + 'users/',
+        'teams': base_url + 'teams/',
+        'activities': base_url + 'activities/',
+        'leaderboard': base_url + 'leaderboard/',
+        'workouts': base_url + 'workouts/'
     })
 
 class UserViewSet(viewsets.ModelViewSet):
