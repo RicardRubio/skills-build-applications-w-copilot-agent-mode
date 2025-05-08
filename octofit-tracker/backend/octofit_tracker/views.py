@@ -6,13 +6,7 @@ from .models import User, Team, Activity, Leaderboard, Workout
 
 @api_view(['GET'])
 def api_root(request, format=None):
-    # Get the request's host, which includes the domain
-    host = request.get_host()
-    # Determine the scheme (http or https)
-    scheme = 'https' if request.is_secure() else 'http'
-    # Build the base URL
-    base_url = f'{scheme}://{host}/api/'
-    
+    base_url = 'https://humble-space-eureka-vwvj5q54r6vfpw7x-8000.app.github.dev/api/'
     return Response({
         'users': base_url + 'users/',
         'teams': base_url + 'teams/',
